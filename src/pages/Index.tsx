@@ -1,12 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useEffect } from 'react';
+import { Header } from '@/components/samvyt/Header';
+import { Footer } from '@/components/samvyt/Footer';
+import { HeroSection } from '@/components/samvyt/HeroSection';
+import { FeaturesSection } from '@/components/samvyt/FeaturesSection';
+import { ProgressSection } from '@/components/samvyt/ProgressSection';
+import { HowItWorksSection } from '@/components/samvyt/HowItWorksSection';
+import { QuotaSelector } from '@/components/samvyt/QuotaSelector';
+import { useRaffleStore } from '@/store/raffleStore';
 
 const Index = () => {
+  const { initializeQuotas, quotas } = useRaffleStore();
+
+  useEffect(() => {
+    if (quotas.length === 0) {
+      initializeQuotas();
+    }
+  }, [quotas.length, initializeQuotas]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <HeroSection />
+        <FeaturesSection />
+        <ProgressSection />
+        <HowItWorksSection />
+        <QuotaSelector />
+      </main>
+      <Footer />
     </div>
   );
 };
