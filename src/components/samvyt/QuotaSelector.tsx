@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PrimaryButton } from './PrimaryButton';
 import { useRaffleStore } from '@/store/raffleStore';
@@ -197,7 +197,7 @@ export const QuotaSelector: React.FC = () => {
               Finalizar Compra
             </PrimaryButton>
           </div>
-        </div>
+        </motion.div>
       </div>
       <PaymentModal 
         isOpen={isPaymentOpen} 
