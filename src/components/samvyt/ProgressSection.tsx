@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { ProgressBar } from './ProgressBar';
-import { StatCard } from './StatCard';
 import { useRaffleStore } from '@/store/raffleStore';
-import { Ticket, CheckCircle, Clock, TrendingUp } from 'lucide-react';
 import { format, differenceInDays, differenceInHours } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
@@ -29,82 +26,66 @@ export const ProgressSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-secondary/30" id="progresso">
+    <section className="py-20 md:py-32 bg-[#F2F4F6]" id="progresso">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <span className="text-sm font-medium text-primary mb-4 block">Acompanhe ao vivo</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Progresso da <span className="text-gradient-cyan">Rifa</span>
-          </h2>
-        </motion.div>
-
-        {/* Progress Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto mb-12"
-        >
-          <ProgressBar
-            value={stats.soldQuotas}
-            max={stats.totalQuotas}
-            size="lg"
-          />
-        </motion.div>
-
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <StatCard
-            title="Cotas Vendidas"
-            value={stats.soldQuotas}
-            subtitle={`${stats.percentage.toFixed(1)}% do total`}
-            icon={<CheckCircle size={24} />}
-            color="green"
-          />
-          <StatCard
-            title="Cotas Disponíveis"
-            value={stats.availableQuotas}
-            subtitle="Garanta a sua!"
-            icon={<Ticket size={24} />}
-            color="cyan"
-          />
-          <StatCard
-            title="Tempo Restante"
-            value={formatTimeRemaining()}
-            subtitle={format(config.drawDate, "dd 'de' MMMM", { locale: ptBR })}
-            icon={<Clock size={24} />}
-            color="yellow"
-          />
-          <StatCard
-            title="Arrecadação"
-            value={`R$ ${stats.revenue.toLocaleString()}`}
-            subtitle="Meta: R$ 17.000"
-            icon={<TrendingUp size={24} />}
-            color="green"
-          />
-        </div>
-
-        {/* Draw info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <div className="inline-flex items-center gap-2 bg-card border border-border rounded-full px-6 py-3">
-            <span className="text-muted-foreground">Sorteio:</span>
-            <span className="font-display font-semibold text-foreground">
-              {format(config.drawDate, "dd/MM/yyyy", { locale: ptBR })}
-            </span>
-            <span className="text-muted-foreground">•</span>
-            <span className="text-primary font-medium">{config.drawMethod}</span>
+        <div className="max-w-4xl mx-auto bg-white rounded-[32px] p-8 md:p-12 shadow-sm border border-[#C9CED3]">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0E1E2E] mb-4">
+              Acompanhe o <span className="text-gradient-cyan">Progresso</span>
+            </h2>
+            <p className="text-[#0E1E2E]/60">
+              Transparência total em cada etapa do sorteio.
+            </p>
           </div>
-        </motion.div>
+
+          {/* Progress Bar */}
+          <div className="mb-12">
+            <div className="flex justify-between items-end mb-4">
+              <div>
+                <p className="text-sm text-[#0E1E2E]/60 font-medium uppercase tracking-widest">Cotas Vendidas</p>
+                <p className="text-4xl font-display font-bold text-[#0E1E2E]">{stats.soldQuotas.toLocaleString()}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-[#0E1E2E]/60 font-medium uppercase tracking-widest">Meta</p>
+                <p className="text-xl font-display font-bold text-[#0E1E2E]">{stats.totalQuotas.toLocaleString()}</p>
+              </div>
+            </div>
+            <ProgressBar
+              value={stats.soldQuotas}
+              max={stats.totalQuotas}
+              size="lg"
+              className="h-4 bg-[#F2F4F6]"
+            />
+            <div className="mt-4 flex justify-between items-center">
+              <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                {stats.percentage.toFixed(1)}% CONCLUÍDO
+              </span>
+              <span className="text-xs text-[#0E1E2E]/40 font-medium">
+                Sorteio ao atingir 100% ou na data prevista
+              </span>
+            </div>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="space-y-1">
+              <p className="text-[10px] text-[#0E1E2E]/40 font-bold uppercase tracking-widest">Disponíveis</p>
+              <p className="text-xl font-display font-bold text-[#0E1E2E]">{stats.availableQuotas.toLocaleString()}</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] text-[#0E1E2E]/40 font-bold uppercase tracking-widest">Valor Cota</p>
+              <p className="text-xl font-display font-bold text-[#0E1E2E]">R$ {config.pricePerQuota.toFixed(2)}</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] text-[#0E1E2E]/40 font-bold uppercase tracking-widest">Tempo</p>
+              <p className="text-xl font-display font-bold text-[#0E1E2E]">{formatTimeRemaining()}</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] text-[#0E1E2E]/40 font-bold uppercase tracking-widest">Sorteio</p>
+              <p className="text-xl font-display font-bold text-[#0E1E2E]">{format(config.drawDate, "dd/MM", { locale: ptBR })}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

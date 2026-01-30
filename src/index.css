@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,102 +6,68 @@
 
 @layer base {
   :root {
-    /* === SamVyt Brandbook v2.0 === */
-    
-    /* Fundos */
-    --background: 210 40% 6%;
-    --foreground: 210 20% 96%;
-    
-    /* Cards e superfícies */
-    --card: 210 35% 12%;
-    --card-foreground: 210 20% 96%;
-    
-    --popover: 210 35% 12%;
-    --popover-foreground: 210 20% 96%;
-    
-    /* Cores primárias - Ciano Tech */
-    --primary: 186 100% 50%;
-    --primary-foreground: 210 40% 10%;
-    
-    /* Secundárias */
-    --secondary: 210 30% 18%;
-    --secondary-foreground: 210 20% 96%;
-    
-    /* Muted - Cinza médio */
-    --muted: 210 25% 20%;
-    --muted-foreground: 210 15% 55%;
-    
-    /* Accent */
-    --accent: 186 100% 50%;
-    --accent-foreground: 210 40% 10%;
-    
-    /* Cores de estado */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --success: 152 76% 36%;
-    --success-foreground: 0 0% 100%;
-    
-    --warning: 38 92% 50%;
-    --warning-foreground: 210 40% 10%;
-    
-    /* Bordas e inputs */
-    --border: 186 100% 50% / 0.2;
-    --input: 210 30% 15%;
-    --ring: 186 100% 50%;
-    
-    /* Radius */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 187 100% 50%; /* #00E5FF */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 187 100% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 187 100% 50%;
+
     --radius: 0.75rem;
-    
-    /* === Cores customizadas SamVyt === */
-    --bg-light: 210 17% 95%;
-    --bg-medium: 210 10% 80%;
-    --primary-dark: 210 50% 12%;
-    --accent-cyan: 186 100% 50%;
-    --dark-bg: 210 40% 6%;
-    --card-bg: 210 35% 12%;
-    
-    /* Gradientes */
-    --gradient-cyan: linear-gradient(135deg, hsl(186 100% 50%), hsl(200 100% 45%));
-    --gradient-glow: linear-gradient(180deg, hsl(186 100% 50% / 0.3), transparent);
-    
-    /* Sombras */
-    --shadow-cyan: 0 0 20px hsl(186 100% 50% / 0.3);
-    --shadow-cyan-lg: 0 0 40px hsl(186 100% 50% / 0.4);
-    --shadow-cyan-intense: 0 0 60px hsl(186 100% 50% / 0.5);
-    
-    /* Sidebar */
-    --sidebar-background: 210 40% 6%;
-    --sidebar-foreground: 210 20% 96%;
-    --sidebar-primary: 186 100% 50%;
-    --sidebar-primary-foreground: 210 40% 10%;
-    --sidebar-accent: 210 35% 15%;
-    --sidebar-accent-foreground: 210 20% 96%;
-    --sidebar-border: 186 100% 50% / 0.2;
-    --sidebar-ring: 186 100% 50%;
+
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
   }
-  
-  /* Mantendo dark como padrão, já que o design é escuro */
+
   .dark {
-    --background: 210 40% 6%;
-    --foreground: 210 20% 96%;
-    --card: 210 35% 12%;
-    --card-foreground: 210 20% 96%;
-    --popover: 210 35% 12%;
-    --popover-foreground: 210 20% 96%;
-    --primary: 186 100% 50%;
-    --primary-foreground: 210 40% 10%;
-    --secondary: 210 30% 18%;
-    --secondary-foreground: 210 20% 96%;
-    --muted: 210 25% 20%;
-    --muted-foreground: 210 15% 55%;
-    --accent: 186 100% 50%;
-    --accent-foreground: 210 40% 10%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 186 100% 50% / 0.2;
-    --input: 210 30% 15%;
-    --ring: 186 100% 50%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 187 100% 50%;
   }
 }
 
@@ -109,143 +75,44 @@
   * {
     @apply border-border;
   }
-
-  html {
-    scroll-behavior: smooth;
-  }
-  
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, hsl(210 40% 6%) 0%, hsl(210 45% 4%) 100%);
-    min-height: 100vh;
+    @apply bg-background text-foreground font-sans antialiased;
   }
-
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
-    @apply font-semibold text-primary;
+    font-family: 'Outfit', sans-serif;
   }
 }
 
 @layer components {
-  /* Glow effects */
-  .glow-cyan {
-    box-shadow: var(--shadow-cyan);
-  }
-  
-  .glow-cyan-lg {
-    box-shadow: var(--shadow-cyan-lg);
-  }
-  
-  .glow-cyan-intense {
-    box-shadow: var(--shadow-cyan-intense);
-  }
-  
-  /* Text gradient */
   .text-gradient-cyan {
-    background: linear-gradient(135deg, hsl(186 100% 50%), hsl(200 100% 60%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00E5FF] to-[#00B8D4];
   }
-  
-  /* Card glass effect */
-  .glass-card {
-    background: hsl(210 35% 12% / 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid hsl(186 100% 50% / 0.2);
+
+  .shadow-cyan {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
   }
-  
-  /* Animated border gradient */
-  .border-glow {
-    position: relative;
+
+  .shadow-cyan-lg {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
   }
-  
-  .border-glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg, hsl(186 100% 50% / 0.5), transparent, hsl(186 100% 50% / 0.5));
-    border-radius: inherit;
-    z-index: -1;
-    animation: borderGlow 3s linear infinite;
-  }
-  
-  @keyframes borderGlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
-  
-  /* Pulse animation for pending states */
-  .pulse-cyan {
-    animation: pulseCyan 2s ease-in-out infinite;
-  }
-  
-  @keyframes pulseCyan {
-    0%, 100% { 
-      box-shadow: 0 0 0 0 hsl(186 100% 50% / 0.4);
-    }
-    50% { 
-      box-shadow: 0 0 0 10px hsl(186 100% 50% / 0);
-    }
-  }
-  
-  /* Floating animation */
-  .float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  /* Progress bar fill animation */
-  .progress-fill {
-    background: linear-gradient(90deg, hsl(186 100% 50%), hsl(152 76% 45%));
-    transition: width 1s ease-out;
-  }
-  
-  /* Shimmer effect for loading */
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      hsl(210 35% 12%) 0%,
-      hsl(210 35% 18%) 50%,
-      hsl(210 35% 12%) 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
-  
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+
+  .shadow-cyan-intense {
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
   }
 }
 
-@layer utilities {
-  /* Scrollbar styling */
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: hsl(186 100% 50% / 0.3) transparent;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: hsl(186 100% 50% / 0.3);
-    border-radius: 3px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: hsl(186 100% 50% / 0.5);
-  }
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-secondary;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/40;
 }

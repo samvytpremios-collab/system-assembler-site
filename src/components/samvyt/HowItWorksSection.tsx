@@ -1,112 +1,64 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MousePointerClick, Smartphone, CheckCircle, Calendar } from 'lucide-react';
-
-const steps = [
-  {
-    step: 1,
-    icon: <MousePointerClick size={28} />,
-    title: 'Escolha seus números',
-    description: 'Selecione manualmente ou gere números aleatórios. Você decide!',
-    color: 'text-primary',
-    bgColor: 'bg-primary/10',
-    borderColor: 'border-primary/30',
-  },
-  {
-    step: 2,
-    icon: <Smartphone size={28} />,
-    title: 'Pague com PIX',
-    description: 'QR Code instantâneo. Aprovação em segundos, sem burocracia.',
-    color: 'text-success',
-    bgColor: 'bg-success/10',
-    borderColor: 'border-success/30',
-  },
-  {
-    step: 3,
-    icon: <CheckCircle size={28} />,
-    title: 'Receba confirmação',
-    description: 'Seus números aparecem imediatamente na tela. Tudo registrado.',
-    color: 'text-warning',
-    bgColor: 'bg-warning/10',
-    borderColor: 'border-warning/30',
-  },
-  {
-    step: 4,
-    icon: <Calendar size={28} />,
-    title: 'Aguarde o sorteio',
-    description: 'Sorteio via Loteria Federal. Resultado público e auditável.',
-    color: 'text-primary',
-    bgColor: 'bg-primary/10',
-    borderColor: 'border-primary/30',
-  },
-];
+import { Ticket, Zap, Trophy, ShieldCheck } from 'lucide-react';
 
 export const HowItWorksSection: React.FC = () => {
+  const steps = [
+    {
+      icon: <Ticket size={32} />,
+      title: 'Escolha suas Cotas',
+      description: 'Selecione a quantidade de números que deseja ou escolha manualmente no grid.',
+      color: 'bg-blue-500/10 text-blue-500',
+    },
+    {
+      icon: <Zap size={32} />,
+      title: 'Pagamento via PIX',
+      description: 'O pagamento é instantâneo e seguro. Suas cotas são reservadas na hora.',
+      color: 'bg-yellow-500/10 text-yellow-500',
+    },
+    {
+      icon: <ShieldCheck size={32} />,
+      title: 'Aguarde o Sorteio',
+      description: 'O sorteio é baseado na Loteria Federal, garantindo total transparência.',
+      color: 'bg-green-500/10 text-green-500',
+    },
+    {
+      icon: <Trophy size={32} />,
+      title: 'Receba seu Prêmio',
+      description: 'Se você for o ganhador, entraremos em contato para entregar seu iPhone 17.',
+      color: 'bg-purple-500/10 text-purple-500',
+    },
+  ];
+
   return (
-    <section className="py-20 md:py-32" id="como-funciona">
+    <section className="py-20 md:py-32 bg-white" id="como-funciona">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-medium text-primary mb-4 block">Simples e rápido</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0E1E2E] mb-4">
             Como <span className="text-gradient-cyan">Funciona</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Participar é muito fácil. Em poucos minutos você já garante suas cotas.
+          <p className="text-[#0E1E2E]/60 max-w-2xl mx-auto">
+            Participar da SamVyt é simples, seguro e transparente. Siga os passos abaixo e boa sorte!
           </p>
-        </motion.div>
+        </div>
 
-        {/* Timeline */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
-
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className={`relative flex items-start gap-6 mb-12 last:mb-0 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* Circle with number */}
-                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className={`w-8 h-8 ${step.bgColor} ${step.borderColor} border-2 rounded-full flex items-center justify-center`}
-                  >
-                    <span className={`text-sm font-bold ${step.color}`}>{step.step}</span>
-                  </motion.div>
-                </div>
-
-                {/* Content Card */}
-                <div className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className={`bg-card border ${step.borderColor} rounded-xl p-6 hover:shadow-cyan transition-all duration-300`}
-                  >
-                    <div className={`w-12 h-12 ${step.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                      <span className={step.color}>{step.icon}</span>
-                    </div>
-                    <h3 className="text-lg font-display font-semibold text-foreground mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {step.description}
-                    </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="p-8 rounded-2xl bg-[#F2F4F6] border border-[#C9CED3] hover:border-primary/50 transition-all group"
+            >
+              <div className={`w-16 h-16 rounded-xl ${step.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                {step.icon}
+              </div>
+              <h3 className="text-xl font-display font-bold text-[#0E1E2E] mb-3">{step.title}</h3>
+              <p className="text-sm text-[#0E1E2E]/60 leading-relaxed">{step.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
