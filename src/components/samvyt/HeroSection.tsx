@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { PrimaryButton } from './PrimaryButton';
 import { useRaffleStore } from '@/store/raffleStore';
-import iphoneHero from '@/assets/iphone17-hero.png';
+// Imagem do iPhone agora está em /public/iphone17-hero.png
 
 export const HeroSection: React.FC = () => {
   const { getStats } = useRaffleStore();
@@ -120,7 +120,7 @@ export const HeroSection: React.FC = () => {
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <img
-                src={iphoneHero}
+                src="/iphone17-hero.png"
                 alt="iPhone 17 Pro Ultramarine"
                 className="max-w-xs md:max-w-md drop-shadow-2xl"
                 style={{
